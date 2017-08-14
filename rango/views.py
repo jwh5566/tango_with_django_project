@@ -1,13 +1,9 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 from rango.models import Category, Page
 from rango.forms import CategoryForm, PageForm
 
 
 def index(request):
-    # return HttpResponse("Rango says hey there partner!<br/><a href='/rango/about/'>About</a>")
-    # context_dict = {'boldmessage': "Crunchy, creamy, cookie, candy, cupcake!"}
-    # return render(request, 'rango/index.html', context=context_dict)
     category_list = Category.objects.order_by('-likes')[:5]
     context_dict = {'categories': category_list}
     page_list = Page.objects.order_by('-views')[:5]
@@ -30,7 +26,6 @@ def show_category(request, category_name_slug):
 
 
 def about(request):
-    # return HttpResponse("Rango says here is the about page.<br/><a href='/rango/'>Rango</a>")
     context_dict = {'message': "This tutorial has been put together by jwh5566."}
     return render(request, 'rango/about.html', context=context_dict)
 
