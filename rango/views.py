@@ -9,6 +9,8 @@ from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
 from datetime import datetime
 
+from registration.backends.simple.views import RegistrationView
+
 
 def index(request):
     request.session.set_test_cookie()
@@ -43,7 +45,10 @@ def about(request):
         print("TEST COOKIE WORKED!")
         request.session.delete_test_cookie()
     context_dict = {'message': "This tutorial has been put together by jwh5566."}
-    return render(request, 'rango/about.html', context=context_dict)
+    visitor_cookie_handler(request)
+    context_dict['visits'] = request.session['visits']
+    response = render(request, 'rango/about.html', context=context_dict)
+    return response
 
 
 @login_required
@@ -177,3 +182,8 @@ def get_server_side_cookie(request, cookie, default_value=None):
     if not val:
         val = default_value
     return val
+
+
+class MyRegistrationView(RegistrationView):
+    def get_success_url(self, user):
+        return '/rango/'

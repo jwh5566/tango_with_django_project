@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rango',
+    'registration',
+
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -129,4 +131,13 @@ MEDIA_DIR = os.path.join(BASE_DIR, 'media')
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
 
-LOGIN_URL = '/rango/login/'
+#LOGIN_URL = '/rango/login/'
+
+
+# django-registration configration
+REGISTRATION = True  # 开放注册
+ACCOUNT_ACTIVIATION_DAYS = 7  # 注册时账户激活时间
+REGISTRATION_AUTO_LOGIN = True  # 注册完成自动登录
+LOGIN_REDIRECT_URL = '/rango/'  # 登录成功之后重定向的页面
+LOGIN_URL = '/accounts/login/'   # 未登录用户访问受限页面时,重定向的页面
+
