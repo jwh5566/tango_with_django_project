@@ -46,6 +46,12 @@ class UserForm(forms.ModelForm):
 
 
 class UserProfileForm(forms.ModelForm):
+    website = forms.URLField(required=False,
+                             help_text="Please enter your website.",
+                             widget=forms.TextInput(attrs={'class': 'form-control'})
+                             )
+    picture = forms.ImageField(required=False)
+
     class Meta:
         model = UserProfile
-        fields = ('website', 'picture')
+        exclude = ('user',)
