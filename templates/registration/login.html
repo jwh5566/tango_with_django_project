@@ -9,9 +9,9 @@
         {% csrf_token %}
         <h2 class="form-signin-heading">Please sign in</h2>
         <label for="inputUsername" class="sr-only">Username</label>
-        <input type="text" id="id_username" class="form-control" placeholder="Username" required autofocus>
+        <input type="text"  name="username" id="id_username" class="form-control" placeholder="Username" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="id_password" class="form-control" placeholder="Password" required>
+        <input type="password" name="password" id="id_password" class="form-control" placeholder="Password" required>
         <div class="checkbox">
           <label>
             <input type="checkbox" value="remember-me"> Remember me
@@ -19,10 +19,13 @@
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
     </form>
-    <form method="post" action=".">
-      {% csrf_token %}
-      {{ form.as_p }}
-
-      <input type="submit" value="login" />
-    </form>
+    <p>
+        Not a member? <a href="{% url 'registration_register' %}">Register!</a>
+    </p>
+{#    <form method="post" action=".">#}
+{#      {% csrf_token %}#}
+{#      {{ form.as_p }}#}
+{##}
+{#      <input type="submit" value="login" />#}
+{#    </form>#}
 {% endblock %}

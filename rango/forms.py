@@ -5,7 +5,8 @@ from django.contrib.auth.models import User
 
 class CategoryForm(forms.ModelForm):
     name = forms.CharField(max_length=128,
-                           help_text="Please enter the category name.")
+                           help_text="Please enter the category name.",
+                           widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Category name'}))
     views = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
     likes = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
     slug = forms.CharField(widget=forms.HiddenInput(), required=False)
@@ -17,8 +18,10 @@ class CategoryForm(forms.ModelForm):
 
 class PageForm(forms.ModelForm):
     title = forms.CharField(max_length=128,
-                            help_text="Please enter the title of the page.")
-    url = forms.URLField(max_length=200, help_text="Please enter the URL of the page.")
+                            help_text="Please enter the title of the page.",
+                            widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Page Title'}))
+    url = forms.URLField(max_length=200, help_text="Please enter the URL of the page.",
+                         widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Page Url'}))
     views = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
 
     class Meta:
