@@ -6,5 +6,22 @@
 {% block body_block %}
     <p>{{ message }}</p>
     <p>你已经访问本站{{ visits }}次</p>
+
+
+    <button class="btn btn-primary btn"
+        onClick="alert('You clicked the button using JavaScript.');">
+        Click Me - I run JavaScript
+    </button>
+    <div style="height: 10px"></div>
+    <button class="btn btn-primary" id="about-btn">
+    Click Me - I'm JavaScript on Speed</button>
+    <p>This is a example</p>
+    <p>This is another example</p>
+
+
+     <p>This text is for a JQuery Example</p>
+
+    <div id="msg">Hello - I'm here for a JQuery Example too</div>
+
     <img src="{{ MEDIA_URL }}cat.jpg" alt="picture of about" />
 {% endblock %}
