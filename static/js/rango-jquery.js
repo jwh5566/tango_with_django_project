@@ -12,10 +12,10 @@ $(document).ready(function () {
         $("#msg").html(msgstr)
     });
 
-    $("p").hover( function() {
-        $(this).css('color', 'red');
-    },
-    function() {
-        $(this).css('color', 'blue');
-    });
+    // $("p").hover( function() {
+    //     $(this).css('color', 'red');
+    // },
+    // function() {
+    //     $(this).css('color', 'blue');
+    // });
 });
